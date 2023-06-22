@@ -4,6 +4,9 @@
  */
 package forms;
 
+import beans.Usuario;
+import dao.usuarioDAO;
+
 /**
  *
  * @author rodrigo
@@ -26,29 +29,77 @@ public class FormCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextPane1 = new javax.swing.JTextPane();
+        txt_cpf = new javax.swing.JTextPane();
+        txt_email = new javax.swing.JTextPane();
+        txt_nome = new javax.swing.JTextPane();
+        txt_senha = new javax.swing.JPasswordField();
+        txt_cfsenha = new javax.swing.JPasswordField();
         btn_cadastrar = new javax.swing.JButton();
-        Nome = new javax.swing.JLabel();
+        cbx_tipo = new javax.swing.JComboBox<>();
+        label_form = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextPane1.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 180, 20));
+        txt_cpf.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 240, 20));
+
+        txt_email.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 240, 20));
+
+        txt_nome.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 240, 30));
+
+        txt_senha.setBackground(new java.awt.Color(255, 255, 255));
+        txt_senha.setForeground(new java.awt.Color(0, 0, 0));
+        txt_senha.setBorder(null);
+        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 240, 20));
+
+        txt_cfsenha.setBackground(new java.awt.Color(255, 255, 255));
+        txt_cfsenha.setForeground(new java.awt.Color(0, 0, 0));
+        txt_cfsenha.setBorder(null);
+        getContentPane().add(txt_cfsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 240, 20));
 
         btn_cadastrar.setBorder(null);
         btn_cadastrar.setContentAreaFilled(false);
-        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 160, 40));
+        btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 560, 180, 40));
 
-        Nome.setBackground(new java.awt.Color(255, 255, 255));
-        Nome.setForeground(new java.awt.Color(255, 255, 255));
-        Nome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cadastro.png"))); // NOI18N
-        Nome.setText("Nome:");
-        Nome.setToolTipText("");
-        getContentPane().add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, -1));
+        cbx_tipo.setBackground(new java.awt.Color(158, 0, 255));
+        cbx_tipo.setForeground(new java.awt.Color(255, 255, 255));
+        cbx_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo de usuário", "Cliente", "Vendedor" }));
+        cbx_tipo.setBorder(null);
+        getContentPane().add(cbx_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, 130, 30));
+
+        label_form.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Captura de tela 2023-06-22 175812.png"))); // NOI18N
+        getContentPane().add(label_form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
+        // TODO add your handling code here:
+        String nome = txt_nome.getText();
+        String email = txt_email.getText();
+        int cpf = Integer.parseInt(txt_cpf.getText().toString());
+        String senha = txt_senha.getText();
+        String cfsenha = txt_cfsenha.getText();
+        String tipo = (String) cbx_tipo.getSelectedItem();
+        
+        Usuario usuario = new Usuario();
+        usuario.setNome(nome);
+        usuario.setEmai(email);
+        usuario.setCpf((char) cpf);
+        usuario.setSenha(senha);
+        usuario.setTipo(tipo);
+        
+        usuarioDAO UsuarioDao = new usuarioDAO();
+        UsuarioDao.inserir(usuario);
+    }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -86,8 +137,13 @@ public class FormCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Nome;
     private javax.swing.JButton btn_cadastrar;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JComboBox<String> cbx_tipo;
+    private javax.swing.JLabel label_form;
+    private javax.swing.JPasswordField txt_cfsenha;
+    private javax.swing.JTextPane txt_cpf;
+    private javax.swing.JTextPane txt_email;
+    private javax.swing.JTextPane txt_nome;
+    private javax.swing.JPasswordField txt_senha;
     // End of variables declaration//GEN-END:variables
 }

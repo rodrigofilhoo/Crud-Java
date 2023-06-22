@@ -14,7 +14,7 @@ public class Usuario {
     private  String emai;
     private int cpf;
     private String senha;
-    private int tipo;
+    private String tipo;
 
     public int getId() {
         return id;
@@ -44,7 +44,7 @@ public class Usuario {
         return cpf;
     }
 
-    public void setCpf(char cpf) {
+    public void setCpf(int cpf) {
         this.cpf = cpf;
     }
 
@@ -56,11 +56,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
     

@@ -32,7 +32,7 @@ public class usuarioDAO {
             stmt.setString(2, usuario.getEmai());
             stmt.setInt(3, usuario.getCpf());
             stmt.setString(4, usuario.getSenha());
-            stmt.setInt(5, usuario.getTipo());
+            stmt.setString(5, usuario.getTipo());
             stmt.execute();
             
         } catch (Exception e){
