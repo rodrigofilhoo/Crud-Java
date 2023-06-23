@@ -4,7 +4,7 @@
  */
 package softpay;
 import conexao.Conexao;
-import forms.FormCadastro;
+import forms.FormLogin;
 
 /**
  *
@@ -19,9 +19,9 @@ public class SoftPay {
         Conexao c = new Conexao();
         c.getConexao();
         
-        FormCadastro fc = new FormCadastro();
-        fc.setVisible(true);
-        fc.setResizable(false);
+        FormLogin fl = new FormLogin();
+        fl.setVisible(true);
+        fl.setResizable(false);
     }
     
 }

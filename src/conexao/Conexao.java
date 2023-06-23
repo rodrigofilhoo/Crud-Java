@@ -3,9 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package conexao;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 /**
  *
@@ -13,16 +11,20 @@ import java.sql.DriverManager;
  */
 public class Conexao {
     
+   public Statement stmt;
+   public Connection con;
+   public ResultSet rs;
+    
     public Connection getConexao(){
         
         try{
             //tenta estabelecer a conexão
-            
             Connection conn = DriverManager.getConnection(
                    "jdbc:mysql://localhost:3306/softpay?serverTimezone=UTC",     //linha de conexão
                     "root",    //usuario do banco
                     ""   //senha do banco
             );
+            stmt = conn.createStatement();
             return conn;
             
         } catch (Exception e){
@@ -32,6 +34,8 @@ public class Conexao {
         }
         
     }
-    
-    
+
+    public PreparedStatement prepareStatement(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -6,6 +6,8 @@ package forms;
 
 import beans.Usuario;
 import dao.usuarioDAO;
+import forms.FormLogin;
+import forms.FormCadastro;
 
 /**
  *
@@ -99,6 +101,7 @@ public class FormCadastro extends javax.swing.JFrame {
         
         usuarioDAO UsuarioDao = new usuarioDAO();
         UsuarioDao.inserir(usuario);
+        
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     /**

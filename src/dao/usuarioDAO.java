@@ -6,8 +6,9 @@ package dao;
 
 import beans.Usuario;
 import conexao.Conexao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import forms.FormLogin;
 /**
  *
  * @author rodrigo
@@ -15,7 +16,10 @@ import java.sql.PreparedStatement;
 public class usuarioDAO {
     
     private Conexao conexao;
-    private Connection conn;
+    public Connection conn;
+    Statement stmt;
+    ResultSet rs;
+    
     
     //contrutor da classe
     
@@ -36,8 +40,26 @@ public class usuarioDAO {
             stmt.execute();
             
         } catch (Exception e){
-            System.out.print("Erro ao inserir: " + e.getMessage());
-            
+         JOptionPane.showMessageDialog(null, "Erro ao inserir: " + e.getMessage());           
         }
     }
+
+   public void usuario (Usuario nome, Usuario senha){
+        String sql = "select * from usuario where nome = ? and senha = ?";
+        
+        try{
+        PreparedStatement stmt = this.conn.prepareStatement(sql);
+        stmt.setString(1, nome.toString());
+        stmt.setString(2, senha.toString());
+        
+        ResultSet rs = stmt.executeQuery();
+        Usuario usuario = new Usuario();
+        rs.first();
+        usuario.setNome(rs.getString(nome.toString()));
+        usuario.setSenha(rs.getString(senha.toString()));
+ 
+    } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+}
 }
