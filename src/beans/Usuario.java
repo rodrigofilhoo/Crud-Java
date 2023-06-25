@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package beans;
 
-/**
- *
- * @author rodrigo
- */
 public class Usuario {
     private int id;
     private  String nome;
@@ -64,8 +57,8 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    public void setEmail(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setEmail(String email) {
+        this.emai = email;
     }
     
 }

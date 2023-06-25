@@ -19,15 +19,16 @@ public class Conexao {
         
         try{
             //tenta estabelecer a conexão
-            Connection conn = DriverManager.getConnection(
-                   "jdbc:mysql://localhost:3306/softpay?serverTimezone=UTC",     //linha de conexão
+            Connection conn;
+            conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/softpay?serverTimezone=UTC",     //linha de conexão
                     "root",    //usuario do banco
-                    ""   //senha do banco
+                    "Recemara150"   //senha do banco
             );
             stmt = conn.createStatement();
             return conn;
             
-        } catch (Exception e){
+        } catch (SQLException e){
             //se der erro...
             System.out.print("Erro ao se conectar" + e.getMessage());
             return null;

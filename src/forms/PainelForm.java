@@ -9,6 +9,8 @@ import dao.usuarioDAO;
 import javax.swing.JOptionPane;
 import forms.FormLogin;
 import forms.FormCadastro;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -41,6 +43,7 @@ public class PainelForm extends javax.swing.JFrame {
         txt_cpf = new javax.swing.JTextField();
         btn_delete = new javax.swing.JButton();
         btn_atualizar = new javax.swing.JButton();
+        btn_entrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,6 +92,16 @@ public class PainelForm extends javax.swing.JFrame {
         });
         getContentPane().add(btn_atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 120, 40));
 
+        btn_entrar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_entrar.setForeground(new java.awt.Color(204, 0, 204));
+        btn_entrar.setText("ENTRAR");
+        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_entrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 540, 250, 40));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/mimde.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
 
@@ -114,25 +127,29 @@ public class PainelForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_deleteActionPerformed
 
     private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
-
         Usuario usuarios = new Usuario();
         usuarios.setNome(txt_nome.getText());
         usuarios.setEmail(txt_email.getText());
         usuarios.setCpf(Integer.parseInt(txt_cpf.getText()));
         usuarios.setSenha(txt_senha.getText());
-        
-        
-        // fazendo a validação dos dados
-        if ((txt_nome.getText().isEmpty()) || (txt_email.getText().isEmpty())) {
-           JOptionPane.showMessageDialog(null, "Favor preencher todos os campos!");
-        }
-        else {
-           // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
-           usuarioDAO dao = new usuarioDAO();
-           dao.atualiza(usuarios);
-           JOptionPane.showMessageDialog(null, "Usuário "+txt_id.getText()+" atualizado com sucesso! ");
-        }
+        // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
+        usuarioDAO dao = new usuarioDAO();
+        dao.atualiza(usuarios);
+        JOptionPane.showMessageDialog(null, "Usuário "+txt_nome.getText()+" atualizado com sucesso! ");
+        FormLogin lc = new FormLogin();
+        lc.setVisible(true);
+        setVisible(false);
+            
+
+
     }//GEN-LAST:event_btn_atualizarActionPerformed
+
+    private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
+                JOptionPane.showMessageDialog(null, "Entrando no Sistema");
+                HomeForm HF = new HomeForm();
+                HF.setVisible(true);
+                setVisible(false);
+    }//GEN-LAST:event_btn_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,6 +189,7 @@ public class PainelForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atualizar;
     private javax.swing.JButton btn_delete;
+    private javax.swing.JButton btn_entrar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txt_cpf;
     private javax.swing.JTextField txt_email;

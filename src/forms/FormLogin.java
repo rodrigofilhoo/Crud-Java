@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import conexao.*;
 import java.sql.*;
 import java.beans.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -90,24 +92,37 @@ public class FormLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         FormCadastro fc = new FormCadastro();
         fc.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
+try {
+        
+        
+        String nome, senha;
+        
+        nome = txt_usuario.getText();
+        senha = txt_senha.getText();
         Usuario usuarios = new Usuario();
-        usuarios.setNome(txt_usuario.getText());
-        usuarios.setSenha(txt_senha.getText());
-              
-        // fazendo a validação dos dados
-        if ((txt_usuario.getText().isEmpty()) || (txt_senha.getText().isEmpty())) {
-           JOptionPane.showMessageDialog(null, "Favor preencher todos os campos!");
+        usuarios.setNome(nome);
+        usuarios.setSenha(senha);
+        
+        usuarioDAO DAO = new usuarioDAO();
+        ResultSet rsusuarioDAO = DAO.login(usuarios);
+        
+        
+            if(rsusuarioDAO.next()){
+                JOptionPane.showMessageDialog(null, "Acesso Permitido");
+                PainelForm PF = new PainelForm();
+                PF.setVisible(true);
+                setVisible(false);
+            }else{        
+                JOptionPane.showMessageDialog(null, "Usuario e Senha Invalida");
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, erro);
         }
-        else {
-           // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
-           usuarioDAO dao = new usuarioDAO();
-           dao.atualiza(usuarios);
-           PainelForm pf = new PainelForm();
-           pf.setVisible(true);
-        }
+
     }//GEN-LAST:event_btn_entrarActionPerformed
 
     /**
@@ -138,10 +153,8 @@ public class FormLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormLogin().setVisible(true);
         });
     }
 

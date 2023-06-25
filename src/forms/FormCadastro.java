@@ -95,7 +95,7 @@ public class FormCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nome = txt_nome.getText();
         String email = txt_email.getText();
-        int cpf = Integer.parseInt(txt_cpf.getText().toString());
+        int cpf = Integer.parseInt(txt_cpf.getText());
         String senha = txt_senha.getText();
         String cfsenha = txt_cfsenha.getText();
         String tipo = (String) cbx_tipo.getSelectedItem();
@@ -145,10 +145,8 @@ public class FormCadastro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormCadastro().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormCadastro().setVisible(true);
         });
     }
 
