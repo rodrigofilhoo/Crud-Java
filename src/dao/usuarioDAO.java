@@ -8,7 +8,6 @@ import beans.Usuario;
 import conexao.Conexao;
 import java.sql.*;
 import javax.swing.JOptionPane;
-import forms.FormLogin;
 /**
  *
  * @author rodrigo
@@ -17,8 +16,6 @@ public class usuarioDAO {
     
     private Conexao conexao;
     public Connection conn;
-    Statement stmt;
-    ResultSet rs;
     
     
     //contrutor da classe
@@ -44,22 +41,53 @@ public class usuarioDAO {
         }
     }
 
-   public void usuario (Usuario nome, Usuario senha){
-        String sql = "select * from usuario where nome = ? and senha = ?";
+   public void deletar (Usuario usuario){ 
+        String sql = "delete from usuario where id = ?";
+               
+        try { 
+            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            stmt.setInt(1, usuario.getId());
+            stmt.execute();
+            stmt.close();
+        } 
+        catch (SQLException u) { 
+            throw new RuntimeException(u);
+        } 
         
-        try{
-        PreparedStatement stmt = this.conn.prepareStatement(sql);
-        stmt.setString(1, nome.toString());
-        stmt.setString(2, senha.toString());
+    }
+    public void atualiza (Usuario usuario){ 
+        String sql = "update usuario set nome = '?', email = '?', cpf = '?' and senha = '?'  where id = ?";
+               
+        try { 
+            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            stmt.setString(1, usuario.getNome());
+            stmt.setString(2, usuario.getEmai());
+            stmt.setInt(3, usuario.getCpf());
+            stmt.setString(4, usuario.getSenha());
+            stmt.setInt(5, usuario.getId());
+            stmt.execute();
+            stmt.close();
+        } 
+        catch (SQLException u) { 
+            throw new RuntimeException(u);
+        } 
+    }
         
-        ResultSet rs = stmt.executeQuery();
-        Usuario usuario = new Usuario();
-        rs.first();
-        usuario.setNome(rs.getString(nome.toString()));
-        usuario.setSenha(rs.getString(senha.toString()));
- 
-    } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-}
+    public void login (Usuario usuario){ 
+              
+        String sql = "select * from usuario where nome = '?' and senha = '?'";
+                
+        try { 
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, usuario.getNome());
+            stmt.setString(2, usuario.getSenha());
+            stmt.execute();
+            stmt.close();
+        } 
+        catch (SQLException u) { 
+            throw new RuntimeException(u);
+        } 
+        
+    }
+
 }

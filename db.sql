@@ -13,4 +13,6 @@ primary key(id)
 
 drop table usuario;
 
+delete from usuario where id = 24;
+
 select * from usuario;

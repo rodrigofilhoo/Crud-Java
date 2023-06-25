@@ -8,6 +8,7 @@ import beans.Usuario;
 import dao.usuarioDAO;
 import forms.FormLogin;
 import forms.FormCadastro;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +21,8 @@ public class FormCadastro extends javax.swing.JFrame {
      */
     public FormCadastro() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -44,20 +47,25 @@ public class FormCadastro extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_cpf.setBackground(new java.awt.Color(255, 255, 255));
+        txt_cpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         getContentPane().add(txt_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 240, 20));
 
         txt_email.setBackground(new java.awt.Color(255, 255, 255));
+        txt_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         getContentPane().add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 240, 20));
 
         txt_nome.setBackground(new java.awt.Color(255, 255, 255));
+        txt_nome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         getContentPane().add(txt_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 240, 30));
 
         txt_senha.setBackground(new java.awt.Color(255, 255, 255));
+        txt_senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_senha.setForeground(new java.awt.Color(0, 0, 0));
         txt_senha.setBorder(null);
         getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 240, 20));
 
         txt_cfsenha.setBackground(new java.awt.Color(255, 255, 255));
+        txt_cfsenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_cfsenha.setForeground(new java.awt.Color(0, 0, 0));
         txt_cfsenha.setBorder(null);
         getContentPane().add(txt_cfsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 240, 20));
@@ -102,6 +110,11 @@ public class FormCadastro extends javax.swing.JFrame {
         usuarioDAO UsuarioDao = new usuarioDAO();
         UsuarioDao.inserir(usuario);
         
+        JOptionPane.showMessageDialog(null, "Usuário criado!");
+        
+        FormLogin lc = new FormLogin();
+        lc.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     /**

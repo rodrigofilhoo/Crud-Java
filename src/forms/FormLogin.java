@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package forms;
+import beans.Usuario;
 import dao.usuarioDAO;
 import forms.FormCadastro;
 import javax.swing.JOptionPane;
@@ -25,7 +26,7 @@ public class FormLogin extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        Conexao objCon = new Conexao();
+        //Conexao objCon = new Conexao();
     }
 
     /**
@@ -48,10 +49,12 @@ public class FormLogin extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        txt_usuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txt_usuario.setBorder(null);
         getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 360, 30));
 
         txt_senha.setBackground(new java.awt.Color(255, 255, 255));
+        txt_senha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txt_senha.setBorder(null);
         getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 360, 30));
 
@@ -77,7 +80,7 @@ public class FormLogin extends javax.swing.JFrame {
         });
         getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 230, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\k2bro\\OneDrive\\Documentos\\NetBeansProjects\\SoftPay\\src\\resources\\entrar.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/entrar.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -90,33 +93,21 @@ public class FormLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
-        // TODO add your handling code here:
-        usuarioDAO UsuarioDao = new usuarioDAO();
-        
-        Conexao cnx = new Conexao();
-        Conexao con = (Conexao) cnx.getConexao();
-        if(txt_usuario.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Por favor digite o usuário!");
-        } else if (txt_senha.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Por favor digite sua senha!");
-        }else{
-            try{
-                cnx.getConexao();
-                cnx.stmt = cnx.con.createStatement();
-                String usuario = txt_usuario.getText();
-                String senha = txt_senha.getText();
-                
-                String sql = "select * from usuario where nome = '?' and senha = '?'";
-                PreparedStatement stmt = this.cnn.prepareStatement(sql);
-                
-                stmt.setString(1,usuario.toString());
-                stmt.setString(2,senha.toString());
-                ResultSet rs = stmt.executeQuery(sql);
-
-            } catch(Exception e){
-                System.out.println(e.getMessage());
-            }
-        }        
+        Usuario usuarios = new Usuario();
+        usuarios.setNome(txt_usuario.getText());
+        usuarios.setSenha(txt_senha.getText());
+              
+        // fazendo a validação dos dados
+        if ((txt_usuario.getText().isEmpty()) || (txt_senha.getText().isEmpty())) {
+           JOptionPane.showMessageDialog(null, "Favor preencher todos os campos!");
+        }
+        else {
+           // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
+           usuarioDAO dao = new usuarioDAO();
+           dao.atualiza(usuarios);
+           PainelForm pf = new PainelForm();
+           pf.setVisible(true);
+        }
     }//GEN-LAST:event_btn_entrarActionPerformed
 
     /**

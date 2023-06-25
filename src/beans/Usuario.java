@@ -63,5 +63,9 @@ public class Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public void setEmail(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
