@@ -34,41 +34,47 @@ public class FormCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_cpf = new javax.swing.JTextPane();
-        txt_email = new javax.swing.JTextPane();
         txt_nome = new javax.swing.JTextPane();
+        txt_email = new javax.swing.JTextPane();
+        txt_cpf = new javax.swing.JTextPane();
         txt_senha = new javax.swing.JPasswordField();
         txt_cfsenha = new javax.swing.JPasswordField();
-        btn_cadastrar = new javax.swing.JButton();
         cbx_tipo = new javax.swing.JComboBox<>();
+        btn_cadastrar = new javax.swing.JButton();
         label_form = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_cpf.setBackground(new java.awt.Color(255, 255, 255));
-        txt_cpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        getContentPane().add(txt_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 240, 20));
+        txt_nome.setBackground(new java.awt.Color(255, 255, 255));
+        txt_nome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        getContentPane().add(txt_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 220, 30));
 
         txt_email.setBackground(new java.awt.Color(255, 255, 255));
         txt_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        getContentPane().add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 240, 20));
+        getContentPane().add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, 220, 30));
 
-        txt_nome.setBackground(new java.awt.Color(255, 255, 255));
-        txt_nome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        getContentPane().add(txt_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 240, 30));
+        txt_cpf.setBackground(new java.awt.Color(255, 255, 255));
+        txt_cpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        getContentPane().add(txt_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 230, 30));
 
         txt_senha.setBackground(new java.awt.Color(255, 255, 255));
         txt_senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_senha.setForeground(new java.awt.Color(0, 0, 0));
         txt_senha.setBorder(null);
-        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 240, 20));
+        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 210, 30));
 
         txt_cfsenha.setBackground(new java.awt.Color(255, 255, 255));
         txt_cfsenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_cfsenha.setForeground(new java.awt.Color(0, 0, 0));
         txt_cfsenha.setBorder(null);
-        getContentPane().add(txt_cfsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 240, 20));
+        getContentPane().add(txt_cfsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 140, 20));
+
+        cbx_tipo.setBackground(new java.awt.Color(158, 0, 255));
+        cbx_tipo.setForeground(new java.awt.Color(255, 255, 255));
+        cbx_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo de usuário", "Cliente", "Vendedor" }));
+        cbx_tipo.setBorder(null);
+        getContentPane().add(cbx_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, 170, 40));
 
         btn_cadastrar.setBorder(null);
         btn_cadastrar.setContentAreaFilled(false);
@@ -77,16 +83,10 @@ public class FormCadastro extends javax.swing.JFrame {
                 btn_cadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 560, 180, 40));
+        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 650, 250, 60));
 
-        cbx_tipo.setBackground(new java.awt.Color(158, 0, 255));
-        cbx_tipo.setForeground(new java.awt.Color(255, 255, 255));
-        cbx_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo de usuário", "Cliente", "Vendedor" }));
-        cbx_tipo.setBorder(null);
-        getContentPane().add(cbx_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, 130, 30));
-
-        label_form.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Captura de tela 2023-06-22 175812.png"))); // NOI18N
-        getContentPane().add(label_form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 660));
+        label_form.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/FormCadastro.png"))); // NOI18N
+        getContentPane().add(label_form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,7 +102,7 @@ public class FormCadastro extends javax.swing.JFrame {
         
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
-        usuario.setEmai(email);
+        usuario.setEmail(email);
         usuario.setCpf((char) cpf);
         usuario.setSenha(senha);
         usuario.setTipo(tipo);

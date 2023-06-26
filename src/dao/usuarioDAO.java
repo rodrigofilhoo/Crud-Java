@@ -30,7 +30,7 @@ public class usuarioDAO {
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
             stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getEmai());
+            stmt.setString(2, usuario.getEmail());
             stmt.setInt(3, usuario.getCpf());
             stmt.setString(4, usuario.getSenha());
             stmt.setString(5, usuario.getTipo());
@@ -56,17 +56,17 @@ public class usuarioDAO {
         
     }
     public void atualiza (Usuario usuario){ 
-        String sql = "UPDATE usuario SET nome = ?, email = ?, cpf = ?, senha = ?" + " WHERE id=?";
+        
                
         try { 
+            String sql = "UPDATE usuario SET nome = ?, email = ?, cpf = ?, senha = ?" + " WHERE id=?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getEmai());
+            stmt.setString(2, usuario.getEmail());
             stmt.setInt(3, usuario.getCpf());
             stmt.setString(4, usuario.getSenha());
             stmt.setInt(5, usuario.getId());
             stmt.execute();
-            stmt.close();
         } 
         catch (SQLException u) { 
             throw new RuntimeException(u);

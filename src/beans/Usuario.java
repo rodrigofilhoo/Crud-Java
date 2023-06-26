@@ -4,7 +4,7 @@ package beans;
 public class Usuario {
     private int id;
     private  String nome;
-    private  String emai;
+    private  String email;
     private int cpf;
     private String senha;
     private String tipo;
@@ -25,12 +25,12 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getEmai() {
-        return emai;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmai(String emai) {
-        this.emai = emai;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getCpf() {
@@ -57,8 +57,5 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    public void setEmail(String email) {
-        this.emai = email;
-    }
     
 }

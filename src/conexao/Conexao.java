@@ -23,7 +23,7 @@ public class Conexao {
             conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/softpay?serverTimezone=UTC",     //linha de conexão
                     "root",    //usuario do banco
-                    "Recemara150"   //senha do banco
+                    ""   //senha do banco
             );
             stmt = conn.createStatement();
             return conn;

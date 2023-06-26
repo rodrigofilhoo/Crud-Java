@@ -4,16 +4,18 @@
  */
 package forms;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rodrigo
  */
-public class HomeForm extends javax.swing.JFrame {
+public class ProdutoForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form HomeForm
+     * Creates new form ProdutoForm
      */
-    public HomeForm() {
+    public ProdutoForm() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -28,34 +30,30 @@ public class HomeForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_produto = new javax.swing.JButton();
+        btn_comprar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_produto.setBorder(null);
-        btn_produto.setContentAreaFilled(false);
-        btn_produto.addActionListener(new java.awt.event.ActionListener() {
+        btn_comprar.setBorder(null);
+        btn_comprar.setContentAreaFilled(false);
+        btn_comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_produtoActionPerformed(evt);
+                btn_comprarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_produto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 940, 30));
+        getContentPane().add(btn_comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 200, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HomeForm (2).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ProdutoForm.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_produtoActionPerformed
-        ProdutoForm pf = new ProdutoForm();
-        pf.setVisible(true);
-        
-        HomeForm hf = new HomeForm();
-        hf.setVisible(false);
-    }//GEN-LAST:event_btn_produtoActionPerformed
+    private void btn_comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comprarActionPerformed
+       JOptionPane.showMessageDialog(null, "Produto a caminho!");
+    }//GEN-LAST:event_btn_comprarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -74,26 +72,26 @@ public class HomeForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomeForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomeForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomeForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomeForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProdutoForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeForm().setVisible(true);
+                new ProdutoForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_produto;
+    private javax.swing.JButton btn_comprar;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

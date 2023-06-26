@@ -43,7 +43,6 @@ public class FormLogin extends javax.swing.JFrame {
         txt_usuario = new javax.swing.JTextField();
         txt_senha = new javax.swing.JPasswordField();
         btn_entrar = new javax.swing.JButton();
-        btn_nvsenha = new javax.swing.JButton();
         btn_cadastrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -53,12 +52,12 @@ public class FormLogin extends javax.swing.JFrame {
         txt_usuario.setBackground(new java.awt.Color(255, 255, 255));
         txt_usuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txt_usuario.setBorder(null);
-        getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 360, 30));
+        getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 400, 30));
 
         txt_senha.setBackground(new java.awt.Color(255, 255, 255));
         txt_senha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txt_senha.setBorder(null);
-        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 360, 30));
+        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 400, 30));
 
         btn_entrar.setBorder(null);
         btn_entrar.setContentAreaFilled(false);
@@ -67,11 +66,7 @@ public class FormLogin extends javax.swing.JFrame {
                 btn_entrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 430, 220, 50));
-
-        btn_nvsenha.setBorder(null);
-        btn_nvsenha.setContentAreaFilled(false);
-        getContentPane().add(btn_nvsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 180, 30));
+        getContentPane().add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 250, 50));
 
         btn_cadastrar.setBorder(null);
         btn_cadastrar.setContentAreaFilled(false);
@@ -80,9 +75,9 @@ public class FormLogin extends javax.swing.JFrame {
                 btn_cadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 230, 50));
+        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, 240, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/entrar.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/FormLogin.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -161,7 +156,6 @@ try {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastrar;
     private javax.swing.JButton btn_entrar;
-    private javax.swing.JButton btn_nvsenha;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField txt_senha;
     private javax.swing.JTextField txt_usuario;

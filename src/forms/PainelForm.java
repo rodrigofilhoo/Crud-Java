@@ -36,43 +36,44 @@ public class PainelForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_email = new javax.swing.JTextField();
         txt_id = new javax.swing.JTextField();
-        txt_senha = new javax.swing.JTextField();
         txt_nome = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
         txt_cpf = new javax.swing.JTextField();
+        txt_senha = new javax.swing.JTextField();
         btn_delete = new javax.swing.JButton();
         btn_atualizar = new javax.swing.JButton();
+        btn_inserir = new javax.swing.JButton();
         btn_entrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_email.setBackground(new java.awt.Color(255, 255, 255));
-        txt_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txt_email.setBorder(null);
-        getContentPane().add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 180, 20));
-
         txt_id.setBackground(new java.awt.Color(255, 255, 255));
         txt_id.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id.setBorder(null);
-        getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, 200, 20));
-
-        txt_senha.setBackground(new java.awt.Color(255, 255, 255));
-        txt_senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txt_senha.setBorder(null);
-        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 180, 30));
+        getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 250, 30));
 
         txt_nome.setBackground(new java.awt.Color(255, 255, 255));
         txt_nome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nome.setBorder(null);
-        getContentPane().add(txt_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 180, 20));
+        getContentPane().add(txt_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 220, 20));
+
+        txt_email.setBackground(new java.awt.Color(255, 255, 255));
+        txt_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_email.setBorder(null);
+        getContentPane().add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 220, 20));
 
         txt_cpf.setBackground(new java.awt.Color(255, 255, 255));
         txt_cpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_cpf.setBorder(null);
-        getContentPane().add(txt_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 180, 20));
+        getContentPane().add(txt_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 450, 230, 20));
+
+        txt_senha.setBackground(new java.awt.Color(255, 255, 255));
+        txt_senha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_senha.setBorder(null);
+        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 510, 200, 30));
 
         btn_delete.setBorder(null);
         btn_delete.setContentAreaFilled(false);
@@ -81,7 +82,7 @@ public class PainelForm extends javax.swing.JFrame {
                 btn_deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 100, 40));
+        getContentPane().add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 570, 150, 50));
 
         btn_atualizar.setBorder(null);
         btn_atualizar.setContentAreaFilled(false);
@@ -90,20 +91,25 @@ public class PainelForm extends javax.swing.JFrame {
                 btn_atualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 120, 40));
+        getContentPane().add(btn_atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 630, 150, 50));
+
+        btn_inserir.setBorder(null);
+        btn_inserir.setContentAreaFilled(false);
+        getContentPane().add(btn_inserir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 570, 150, 50));
 
         btn_entrar.setBackground(new java.awt.Color(255, 255, 255));
         btn_entrar.setForeground(new java.awt.Color(204, 0, 204));
-        btn_entrar.setText("ENTRAR");
+        btn_entrar.setBorder(null);
+        btn_entrar.setContentAreaFilled(false);
         btn_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_entrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 540, 250, 40));
+        getContentPane().add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 630, 150, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/mimde.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/PainelForm.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 810));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,27 +117,34 @@ public class PainelForm extends javax.swing.JFrame {
     private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
         Usuario usuarios = new Usuario();
         usuarios.setId(Integer.parseInt(txt_id.getText()));
-        
         // fazendo a validação dos dados
         if ((txt_id.getText().isEmpty()) ) {
             JOptionPane.showMessageDialog(null, "Insira o Id do usuário para deletar!");
         } else {
-
-        // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
+            
+            // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
             usuarioDAO dao = new usuarioDAO();
             dao.deletar(usuarios);
             JOptionPane.showMessageDialog(null, "Usuário "+txt_id.getText()+" excluido com sucesso! ");
-         }
+        }
         // apaga os dados preenchidos nos campos de texto
         txt_id.setText("");
     }//GEN-LAST:event_btn_deleteActionPerformed
 
     private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
+        String nome, email, senha;
+        int cpf, id;
+        nome = (txt_nome.getText());
+        email = (txt_email.getText());
+        senha = (txt_senha).getText();
+        cpf =Integer.parseInt(txt_cpf.getText());
+        id = Integer.parseInt(txt_id.getText());
         Usuario usuarios = new Usuario();
-        usuarios.setNome(txt_nome.getText());
-        usuarios.setEmail(txt_email.getText());
-        usuarios.setCpf(Integer.parseInt(txt_cpf.getText()));
-        usuarios.setSenha(txt_senha.getText());
+        usuarios.setNome(nome);
+        usuarios.setEmail(email);
+        usuarios.setCpf(cpf);
+        usuarios.setSenha(senha);
+        usuarios.setId(id);
         // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
         usuarioDAO dao = new usuarioDAO();
         dao.atualiza(usuarios);
@@ -139,9 +152,6 @@ public class PainelForm extends javax.swing.JFrame {
         FormLogin lc = new FormLogin();
         lc.setVisible(true);
         setVisible(false);
-            
-
-
     }//GEN-LAST:event_btn_atualizarActionPerformed
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
@@ -190,6 +200,7 @@ public class PainelForm extends javax.swing.JFrame {
     private javax.swing.JButton btn_atualizar;
     private javax.swing.JButton btn_delete;
     private javax.swing.JButton btn_entrar;
+    private javax.swing.JButton btn_inserir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txt_cpf;
     private javax.swing.JTextField txt_email;
